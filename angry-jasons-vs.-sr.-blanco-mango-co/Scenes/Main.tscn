@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dbwpwpdouefn8"]
 
-[ext_resource type="Texture2D" uid="uid://cmiwilcq7vpoo" path="res://icon.svg" id="1_glv2v"]
+[ext_resource type="Texture2D" uid="uid://d04sxnf356o4n" path="res://icon.svg" id="1_glv2v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glv2v"]
 size = Vector2(128, 127)
@@ -16,3 +16,10 @@ texture = ExtResource("1_glv2v")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(176, 132.5)
 shape = SubResource("RectangleShape2D_glv2v")
+
+[node name="Label" type="Label" parent="CharacterBody2D"]
+offset_left = 126.0
+offset_top = 37.0
+offset_right = 166.0
+offset_bottom = 60.0
+text = "Godot Title"
