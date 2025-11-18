@@ -19,6 +19,7 @@ var damageable
 const BOX_1 = preload("res://Resources/box1.tres")
 var BOX = BOX_1
 const BOX_2 = preload("res://Resources/box2.tres")
+const BOX_3 = preload("res://Resources/box3.tres")
 
 @onready var p_1_ready: Button = $P1Ready
 @onready var p_2_ready: Button = $P2Ready
@@ -113,7 +114,7 @@ func setDamageable():
 	for box in p2Boxes:
 		box.damageable = true
 	damageable = true
-
+	
 
 func _on_p_1_ready_pressed() -> void:
 	p1Ready = true
@@ -154,3 +155,6 @@ func _on_box_1_pressed() -> void:
 
 func _on_box_2_pressed() -> void:
 	BOX = BOX_2 # Replace with function body.
+
+func _on_box_3_pressed() -> void:
+	BOX = BOX_3

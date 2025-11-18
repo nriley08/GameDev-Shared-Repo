@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_exhf7")
 sprite = ExtResource("2_lbby4")
-health = 100
+health = 150
 modulate = Vector3(1, 0, 0)
-price = 20
+price = 25
 metadata/_custom_type_script = "uid://ixvkm70n8r36"

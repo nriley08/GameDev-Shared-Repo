@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bh5yhbs1j7hqs"]
+[gd_scene load_steps=14 format=3 uid="uid://bh5yhbs1j7hqs"]
 
 [ext_resource type="Script" uid="uid://bujxj4tnmb25v" path="res://Scripts/main.gd" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://cw8hvj3qlxt16" path="res://Scenes/box.tscn" id="1_jjgbg"]
@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://bpnjsobs0th8o" path="res://Resources/box1.tres" id="4_21xkr"]
 [ext_resource type="Script" uid="uid://b6l6vqodhaixw" path="res://Scripts/shopIcon.gd" id="4_kry3j"]
 [ext_resource type="Resource" uid="uid://85b5pv4xedn7" path="res://Resources/box2.tres" id="5_6bp64"]
+[ext_resource type="Resource" uid="uid://djnwchvtuoceg" path="res://Resources/box3.tres" id="8_bmxlf"]
 [ext_resource type="Script" uid="uid://bvyxeujeomj0a" path="res://Scripts/progress_bar.gd" id="9_ynf5e"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bo1nx"]
@@ -47,19 +48,19 @@ offset_bottom = -262.0
 text = "P1 Ready"
 
 [node name="P1Placement" type="Button" parent="."]
-offset_left = -574.0
-offset_top = -230.0
-offset_right = -495.0
-offset_bottom = -199.0
+offset_left = -573.0
+offset_top = -243.0
+offset_right = -494.0
+offset_bottom = -212.0
 scale = Vector2(6.86376, 2.21596)
 theme_override_styles/normal = SubResource("StyleBoxFlat_bo1nx")
 expand_icon = true
 
 [node name="P2Placement" type="Button" parent="."]
 offset_left = 33.0
-offset_top = -230.0
+offset_top = -242.0
 offset_right = 112.0
-offset_bottom = -199.0
+offset_bottom = -211.0
 scale = Vector2(6.86376, 2.21596)
 theme_override_styles/normal = SubResource("StyleBoxFlat_bo1nx")
 expand_icon = true
@@ -75,9 +76,9 @@ text = "P2 Ready"
 
 [node name="Box1" type="Button" parent="Shop"]
 offset_left = 158.0
-offset_top = -321.0
+offset_top = -320.0
 offset_right = 166.0
-offset_bottom = -290.0
+offset_bottom = -289.0
 text = "
 "
 script = ExtResource("4_kry3j")
@@ -85,13 +86,21 @@ box = ExtResource("4_21xkr")
 
 [node name="Box2" type="Button" parent="Shop"]
 offset_left = 158.0
-offset_top = -204.0
+offset_top = -184.0
 offset_right = 166.0
-offset_bottom = -173.0
+offset_bottom = -153.0
 text = "
 "
 script = ExtResource("4_kry3j")
 box = ExtResource("5_6bp64")
+
+[node name="Box3" type="Button" parent="Shop"]
+offset_left = 158.0
+offset_top = -48.0
+offset_right = 166.0
+offset_bottom = -17.0
+script = ExtResource("4_kry3j")
+box = ExtResource("8_bmxlf")
 
 [node name="P1Slingshot" type="AnimatedSprite2D" parent="."]
 position = Vector2(-513, 251)
@@ -115,3 +124,4 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="P2Ready" to="." method="_on_p_2_ready_pressed"]
 [connection signal="pressed" from="Shop/Box1" to="." method="_on_box_1_pressed"]
 [connection signal="pressed" from="Shop/Box2" to="." method="_on_box_2_pressed"]
+[connection signal="pressed" from="Shop/Box3" to="." method="_on_box_3_pressed"]
