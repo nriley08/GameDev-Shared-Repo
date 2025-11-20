@@ -75,9 +75,9 @@ text = "P2 Ready"
 [node name="Shop" type="Node2D" parent="."]
 
 [node name="Box1" type="Button" parent="Shop"]
-offset_left = 158.0
+offset_left = 60.0
 offset_top = -320.0
-offset_right = 166.0
+offset_right = 68.0
 offset_bottom = -289.0
 text = "
 "
@@ -85,9 +85,9 @@ script = ExtResource("4_kry3j")
 box = ExtResource("4_21xkr")
 
 [node name="Box2" type="Button" parent="Shop"]
-offset_left = 158.0
+offset_left = 60.0
 offset_top = -184.0
-offset_right = 166.0
+offset_right = 68.0
 offset_bottom = -153.0
 text = "
 "
@@ -95,9 +95,9 @@ script = ExtResource("4_kry3j")
 box = ExtResource("5_6bp64")
 
 [node name="Box3" type="Button" parent="Shop"]
-offset_left = 158.0
+offset_left = 60.0
 offset_top = -48.0
-offset_right = 166.0
+offset_right = 68.0
 offset_bottom = -17.0
 script = ExtResource("4_kry3j")
 box = ExtResource("8_bmxlf")
