@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqtxnsj41knj2"]
+
+[ext_resource type="Script" uid="uid://mp31g1eka74d" path="res://Scripts/bird.gd" id="1_mcegt"]
+[ext_resource type="Texture2D" uid="uid://b44rfcg87we6h" path="res://icon.svg" id="2_dnvpi"]
+
+[node name="Bird" type="RigidBody2D" node_paths=PackedStringArray("sprite_2d", "collision_shape_2d", "areashape")]
+collision_layer = 4
+mass = 4.0
+script = ExtResource("1_mcegt")
+sprite_2d = NodePath("Sprite2D")
+collision_shape_2d = NodePath("CollisionShape2D")
+areashape = NodePath("Area2D/CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_dnvpi")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

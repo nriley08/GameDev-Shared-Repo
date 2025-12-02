@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://cw8hvj3qlxt16"]
+
+[ext_resource type="Script" uid="uid://70a66eqke7nk" path="res://Scripts/box.gd" id="1_ego7h"]
+[ext_resource type="Texture2D" uid="uid://b44rfcg87we6h" path="res://icon.svg" id="2_2jyye"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b5qfa"]
+size = Vector2(127, 126.5)
+
+[node name="Box" type="RigidBody2D" node_paths=PackedStringArray("sprite_2d", "collision_shape_2d", "areashape", "healthLabel")]
+collision_mask = 7
+script = ExtResource("1_ego7h")
+sprite_2d = NodePath("Sprite2D")
+collision_shape_2d = NodePath("CollisionShape2D")
+areashape = NodePath("Box/CollisionShape2D")
+healthLabel = NodePath("Health")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.25)
+shape = SubResource("RectangleShape2D_b5qfa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_2jyye")
+
+[node name="Box" type="Area2D" parent="."]
+collision_mask = 3
+monitorable = false
+gravity_space_override = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box"]
+
+[node name="Health" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="body_entered" from="Box" to="." method="_on_area_2d_body_entered"]

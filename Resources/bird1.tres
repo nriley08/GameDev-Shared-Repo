@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BirdInfo" load_steps=3 format=3 uid="uid://dl28rulaheub8"]
+
+[ext_resource type="Script" uid="uid://ca71adt21nb6p" path="res://Scripts/birdInfo.gd" id="1_3amig"]
+[ext_resource type="Texture2D" uid="uid://b44rfcg87we6h" path="res://icon.svg" id="2_3amig"]
+
+[resource]
+script = ExtResource("1_3amig")
+damage = 0.75
+sprite = ExtResource("2_3amig")
+radius = 70
+speed = 10
+modulate = Vector3(0, 0, 1)
+price = 30
+metadata/_custom_type_script = "uid://ca71adt21nb6p"

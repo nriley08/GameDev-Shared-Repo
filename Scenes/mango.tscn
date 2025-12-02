@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckcyr6dm4yshc"]
+
+[ext_resource type="Script" uid="uid://crt5glxccn8q" path="res://Scripts/mango.gd" id="1_nnmhy"]
+[ext_resource type="Texture2D" uid="uid://b44rfcg87we6h" path="res://icon.svg" id="2_8q5rd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b5qfa"]
+size = Vector2(127, 126.5)
+
+[node name="Mango" type="RigidBody2D" node_paths=PackedStringArray("sprite_2d", "collision_shape_2d", "areashape", "healthLabel")]
+collision_mask = 7
+script = ExtResource("1_nnmhy")
+sprite_2d = NodePath("Sprite2D")
+collision_shape_2d = NodePath("CollisionShape2D")
+areashape = NodePath("Mango/CollisionShape2D")
+healthLabel = NodePath("Health")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.25)
+shape = SubResource("RectangleShape2D_b5qfa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_8q5rd")
+
+[node name="Mango" type="Area2D" parent="."]
+collision_mask = 3
+monitorable = false
+gravity_space_override = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mango"]
+
+[node name="Health" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="body_entered" from="Mango" to="." method="_on_area_2d_body_entered"]

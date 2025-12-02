@@ -1,0 +1,176 @@
+[gd_scene load_steps=15 format=3 uid="uid://bh5yhbs1j7hqs"]
+
+[ext_resource type="Script" uid="uid://bujxj4tnmb25v" path="res://Scripts/main.gd" id="1_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://cw8hvj3qlxt16" path="res://Scenes/box.tscn" id="1_jjgbg"]
+[ext_resource type="Resource" uid="uid://dl28rulaheub8" path="res://Resources/bird1.tres" id="3_6bp64"]
+[ext_resource type="PackedScene" uid="uid://cqtxnsj41knj2" path="res://Scenes/bird.tscn" id="3_344ge"]
+[ext_resource type="Texture2D" uid="uid://b44rfcg87we6h" path="res://icon.svg" id="3_jjvhh"]
+[ext_resource type="Resource" uid="uid://bpnjsobs0th8o" path="res://Resources/box1.tres" id="4_21xkr"]
+[ext_resource type="Script" uid="uid://b6l6vqodhaixw" path="res://Scripts/shopIcon.gd" id="4_kry3j"]
+[ext_resource type="Resource" uid="uid://85b5pv4xedn7" path="res://Resources/box2.tres" id="5_6bp64"]
+[ext_resource type="Script" uid="uid://bu31811rk2vpb" path="res://Scripts/shopBird.gd" id="8_hptm8"]
+[ext_resource type="Script" uid="uid://bvyxeujeomj0a" path="res://Scripts/progress_bar.gd" id="9_ynf5e"]
+[ext_resource type="PackedScene" uid="uid://ckcyr6dm4yshc" path="res://Scenes/mango.tscn" id="11_d1ilt"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bo1nx"]
+distance = -327.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bo1nx"]
+bg_color = Color(2.69532e-06, 0.642158, 0.928553, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_21xkr"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_bo1nx")
+box = ExtResource("1_jjgbg")
+bird = ExtResource("3_344ge")
+powerMax = 100.0
+increaseValue = 1.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_bo1nx")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="P1MoneyLabel" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="P2MoneyLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+
+[node name="Time" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+
+[node name="P1Ready" type="Button" parent="."]
+offset_left = -538.0
+offset_top = -293.0
+offset_right = -459.0
+offset_bottom = -262.0
+text = "P1 Ready"
+
+[node name="P1Placement" type="Button" parent="."]
+offset_left = -574.0
+offset_top = -230.0
+offset_right = -495.0
+offset_bottom = -199.0
+scale = Vector2(6.86376, 2.21596)
+theme_override_styles/normal = SubResource("StyleBoxFlat_bo1nx")
+expand_icon = true
+
+[node name="P2Placement" type="Button" parent="."]
+offset_left = 33.0
+offset_top = -230.0
+offset_right = 112.0
+offset_bottom = -199.0
+scale = Vector2(6.86376, 2.21596)
+theme_override_styles/normal = SubResource("StyleBoxFlat_bo1nx")
+expand_icon = true
+
+[node name="P2Ready" type="Button" parent="."]
+offset_left = 472.0
+offset_top = -302.0
+offset_right = 551.0
+offset_bottom = -271.0
+text = "P2 Ready"
+
+[node name="BoxShop" type="Node2D" parent="."]
+
+[node name="Box1" type="Button" parent="BoxShop"]
+offset_left = 158.0
+offset_top = -321.0
+offset_right = 166.0
+offset_bottom = -290.0
+text = "
+"
+script = ExtResource("4_kry3j")
+box = ExtResource("4_21xkr")
+
+[node name="Box2" type="Button" parent="BoxShop"]
+offset_left = 158.0
+offset_top = -204.0
+offset_right = 166.0
+offset_bottom = -173.0
+text = "
+"
+script = ExtResource("4_kry3j")
+box = ExtResource("5_6bp64")
+
+[node name="BirdShop" type="Node2D" parent="."]
+
+[node name="Bird1" type="Button" parent="BirdShop"]
+offset_left = 158.0
+offset_top = -321.0
+offset_right = 166.0
+offset_bottom = -290.0
+text = "
+"
+script = ExtResource("8_hptm8")
+bird = ExtResource("3_6bp64")
+
+[node name="P1Slingshot" type="AnimatedSprite2D" parent="."]
+position = Vector2(-513, 138)
+sprite_frames = SubResource("SpriteFrames_21xkr")
+
+[node name="Sprite2D" type="Sprite2D" parent="P1Slingshot"]
+texture = ExtResource("3_jjvhh")
+
+[node name="ProgressBar" type="ProgressBar" parent="P1Slingshot" node_paths=PackedStringArray("main")]
+offset_left = -23.0
+offset_top = -124.0
+offset_right = -19.0
+offset_bottom = -97.0
+script = ExtResource("9_ynf5e")
+p1 = true
+main = NodePath("../..")
+metadata/_edit_use_anchors_ = true
+
+[node name="P2Slingshot" type="AnimatedSprite2D" parent="."]
+position = Vector2(508, 135)
+sprite_frames = SubResource("SpriteFrames_21xkr")
+
+[node name="Sprite2D" type="Sprite2D" parent="P2Slingshot"]
+texture = ExtResource("3_jjvhh")
+
+[node name="ProgressBar2" type="ProgressBar" parent="P2Slingshot" node_paths=PackedStringArray("main")]
+offset_left = 3.0
+offset_top = -124.0
+offset_right = 7.0
+offset_bottom = -97.0
+script = ExtResource("9_ynf5e")
+main = NodePath("../..")
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="p1Mango" parent="." instance=ExtResource("11_d1ilt")]
+position = Vector2(-270, 260)
+
+[node name="p2Mango" parent="." instance=ExtResource("11_d1ilt")]
+position = Vector2(256, 261)
+
+[connection signal="pressed" from="P1Ready" to="." method="_on_p_1_ready_pressed"]
+[connection signal="pressed" from="P1Placement" to="." method="_on_p_1_placement_pressed"]
+[connection signal="pressed" from="P2Placement" to="." method="_on_p_2_placement_pressed"]
+[connection signal="pressed" from="P2Ready" to="." method="_on_p_2_ready_pressed"]
+[connection signal="pressed" from="BoxShop/Box1" to="." method="_on_box_1_pressed"]
+[connection signal="pressed" from="BoxShop/Box2" to="." method="_on_box_2_pressed"]
+[connection signal="pressed" from="BirdShop/Bird1" to="." method="_on_bird_1_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
