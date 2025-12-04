@@ -141,67 +141,52 @@ func p2Shoot():
 		newBird.position = p_2_slingshot.position
 		newBird.apply_central_impulse(Vector2(-.65,-1) * p2Power * 10)
 		add_child(newBird)
-'''
-* p1 buys stuff - mats updating
-*
-* @param nothing
-* @return nothing
-* @throws nothing
-'''
+		
 func buildStage1():
 	shop.show()
-	shop.position.x = 0
+	p1birdShop =true
+	bird_shop.show()
+	bird_shop.position.x = -10
+	p_2_slingshot.hide()
+	p2mango.hide()
+	shop.position.x = -10
 	showPlayer1Buttons(true)
 	showPlayer2Buttons(false)
-'''
-* p2 buys stuff - mats updating
-*
-* @param 
-* @return nothing
-* @throws nothing
-'''
+
 func buildStage2():
-	shop.position.x = -580
+	p1birdShop =false #makes it so the bird takes money from p2 and not p1
+	shop.position.x = -640
+	bird_shop.position.x = -640
+	p_2_slingshot.show()
+	p2mango.show()
 	showPlayer1Buttons(false)
 	showPlayer2Buttons(true)
-'''
-* will get rid of once I get mats code
-*
-* @param 
-* @return nothing
-* @throws nothing
-'''
-func birdStage1():
-	p1birdShop = true
-	shop.hide()
-	bird_shop.show()
-	shop.position.x = 0
-	p_1_ready.show()
-	showPlayer2Buttons(false)
-	'''
-* get rid of with mats code
-*
-* @param 
-* @return nothing
-* @throws nothing
-'''
+	p_1_slingshot.hide()
+	p1mango.hide()
+
+"func birdStage1():
+p1birdShop = true
+shop.hide()
+bird_shop.show()
+shop.position.x = 0
+p_1_ready.show()
+showPlayer2Buttons(false)
+p_1_slingshot.show()
+p1mango.show()
 func birdStage2():
-	p1birdShop = false
-	bird_shop.position.x = -580
-	showPlayer1Buttons(false)
-	p_2_ready.show()
-'''
-* shooting stage
-*
-* @param nothing
-* @return nothing
-* @throws nothing
-'''
+p1birdShop = false
+bird_shop.position.x = -580
+showPlayer1Buttons(false)
+p_2_ready.show()"
+
 func shootingStage():
-	setDamageable()
 	timer.start(60)
 	bird_shop.hide()
+	shop.hide()
 	showPlayer2Buttons(false)
+	bird_shop.hide()
+	p1mango.show()
+	p_1_slingshot.show()
 '''
 * show or hide p1 placement and ready buttons
 *
@@ -251,13 +236,11 @@ func setDamageable():
 * @throws nothing
 '''
 func _on_p_1_ready_pressed() -> void:
-	if(!p1Ready):
-		p1Ready = true
-		p_1_ready.visible = false
-		buildStage2()
-	else:
-		p_1_ready.visible = false
-		birdStage2()
+	p1Ready = true
+	p_1_ready.visible = false
+	buildStage2()
+
+
 
 '''
 * called when p2 ready button pressed - start next phase
@@ -267,14 +250,10 @@ func _on_p_1_ready_pressed() -> void:
 * @throws nothing
 '''
 func _on_p_2_ready_pressed() -> void:
-	if(!p2Ready):
-		p2Ready = true
-		p_2_ready.visible = false
-		birdStage1()
-	else:
-		p_2_ready.visible = false
-		setDamageable()
-		shootingStage()
+	p2Ready = true
+	p_2_ready.visible = false
+	setDamageable()
+	shootingStage()
 
 '''
 * called when p1 placement button pressed - place box

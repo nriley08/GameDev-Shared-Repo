@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_3amig")
-damage = 0.75
+damage = 1.5
 sprite = ExtResource("2_3amig")
 radius = 70
 speed = 10
