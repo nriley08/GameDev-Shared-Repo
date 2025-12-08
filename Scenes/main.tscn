@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bq05qjeek1w5g"]
+[gd_scene load_steps=16 format=3 uid="uid://bq05qjeek1w5g"]
 
 [ext_resource type="Script" uid="uid://bujxj4tnmb25v" path="res://Scripts/main.gd" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://cw8hvj3qlxt16" path="res://Scenes/box.tscn" id="1_jjgbg"]
@@ -12,7 +12,6 @@
 [ext_resource type="Script" uid="uid://bu31811rk2vpb" path="res://Scripts/shopBird.gd" id="8_hptm8"]
 [ext_resource type="Script" uid="uid://bvyxeujeomj0a" path="res://Scripts/progress_bar.gd" id="9_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://ckcyr6dm4yshc" path="res://Scenes/mango.tscn" id="11_d1ilt"]
-[ext_resource type="Script" uid="uid://cnamcls4oc5st" path="res://Scripts/audioPlayer.gd" id="13_fdnlq"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bo1nx"]
 distance = -327.0
@@ -183,9 +182,6 @@ position = Vector2(-212, 276)
 
 [node name="p2Mango" parent="." instance=ExtResource("11_d1ilt")]
 position = Vector2(224, 276)
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-script = ExtResource("13_fdnlq")
 
 [connection signal="pressed" from="P1Ready" to="." method="_on_p_1_ready_pressed"]
 [connection signal="pressed" from="P1Placement" to="." method="_on_p_1_placement_pressed"]

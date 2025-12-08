@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cw8hvj3qlxt16"]
+[gd_scene load_steps=5 format=3 uid="uid://cw8hvj3qlxt16"]
 
 [ext_resource type="Script" uid="uid://70a66eqke7nk" path="res://Scripts/box.gd" id="1_ego7h"]
 [ext_resource type="Texture2D" uid="uid://b44rfcg87we6h" path="res://icon.svg" id="2_2jyye"]
+[ext_resource type="AudioStream" uid="uid://6h2nokjdn8s" path="res://Assets/Audio/hit_sound.mp3" id="3_2jyye"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b5qfa"]
 size = Vector2(127, 126.5)
@@ -35,5 +36,8 @@ scale = Vector2(0.7, 0.7)
 [node name="Health" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_2jyye")
 
 [connection signal="body_entered" from="Box" to="." method="_on_area_2d_body_entered"]

@@ -358,10 +358,12 @@ func _on_bird_1_pressed() -> void:
 		if(p1.money >= BIRD_1.price):
 			p1.money -= BIRD_1.price
 			p1.addBird(BIRD_1)
+			p1MoneyLabel.text = p1.getMoney()
 	else:
 		if(p2.money >= BIRD_1.price):
 			p2.money -= BIRD_1.price
 			p2.addBird(BIRD_1)
+			p2MoneyLabel.text = p2.getMoney()
 
 '''
 * called when a mango tree dies

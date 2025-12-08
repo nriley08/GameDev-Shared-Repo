@@ -1,6 +1,8 @@
 extends RigidBody2D
 class_name Box
 
+@onready var audioStreamPlayer: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
 @export var health := 100
 var damageable := false
 @export var sprite_2d: Sprite2D #= $Sprite2D
@@ -46,5 +48,6 @@ func subtractHealth(amount : int):
 func _on_area_2d_body_entered(_body: Node2D) -> void:
 	if(damageable):
 		subtractHealth(int(abs(linear_velocity.length())/100))
+		audioStreamPlayer.play(1)
 	if(_body.damageable):
 		_body.subtractHealth(int(abs(linear_velocity.length())/300))

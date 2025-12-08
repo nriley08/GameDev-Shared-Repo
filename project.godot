@@ -15,10 +15,6 @@ run/main_scene="uid://dnhttopu4j16d"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
-[autoload]
-
-AudioPlayer="*res://Scripts/audioPlayer.gd"
-
 [display]
 
 window/stretch/mode="viewport"
