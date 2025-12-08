@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2n37vyxwh5r8"]
+
+[ext_resource type="Script" uid="uid://bc1uaxypxxs4y" path="res://Character.gd" id="1_8wyfd"]
+[ext_resource type="Texture2D" uid="uid://bsqq7npiaoi2t" path="res://icon.svg" id="1_sicec"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n121h"]
+size = Vector2(23, 24)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7nyox"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ocfcl"]
+size = Vector2(0.996843, 0.992056)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(417, 406)
+collision_layer = 2
+script = ExtResource("1_8wyfd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_n121h")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(1, -1.00001)
+scale = Vector2(0.195312, 0.203124)
+texture = ExtResource("1_sicec")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(578, 562)
+scale = Vector2(897, 78)
+mesh = SubResource("BoxMesh_7nyox")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MeshInstance2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeshInstance2D/StaticBody2D"]
+position = Vector2(9.35793e-05, 0.0057373)
+shape = SubResource("RectangleShape2D_ocfcl")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
+position = Vector2(1356, 438)
+scale = Vector2(1050.37, -42.4998)
+mesh = SubResource("BoxMesh_7nyox")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MeshInstance2D2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeshInstance2D2/StaticBody2D"]
+position = Vector2(0.000952005, 0.00573635)
+shape = SubResource("RectangleShape2D_ocfcl")
