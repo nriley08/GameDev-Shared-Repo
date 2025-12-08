@@ -125,7 +125,7 @@ func p1Shoot():
 		var newBird = bird.instantiate()
 		newBird.setUp(newBirdInfo)
 		newBird.position = p_1_slingshot.position
-		newBird.apply_central_impulse(Vector2(.65,-1) * p1Power * 10)
+		newBird.apply_central_impulse(Vector2(.55,-1) * p1Power * 10)
 		add_child(newBird)
 '''
 * let p2 shoot
@@ -145,7 +145,7 @@ func p2Shoot():
 		var newBird = bird.instantiate()
 		newBird.setUp(newBirdInfo)
 		newBird.position = p_2_slingshot.position
-		newBird.apply_central_impulse(Vector2(-.65,-1) * p2Power * 10)
+		newBird.apply_central_impulse(Vector2(-.55,-1) * p2Power * 10)
 		add_child(newBird)
 		
 func buildStage1():
