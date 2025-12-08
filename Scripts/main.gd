@@ -1,4 +1,5 @@
 extends Node2D
+@onready var win: Label = $CanvasLayer/Win
 
 @onready var p_1_slingshot: AnimatedSprite2D = $P1Slingshot
 @onready var p_2_slingshot: AnimatedSprite2D = $P2Slingshot
@@ -27,6 +28,7 @@ var damageable := false
 const BOX_1 = preload("res://Resources/box1.tres")
 var BOX = BOX_1
 const BOX_2 = preload("res://Resources/box2.tres")
+const BOX_3 = preload("res://Resources/box3.tres")
 #birds for shop
 const BIRD_1 = preload("res://Resources/bird1.tres")
 var p1birdShop := false
@@ -54,9 +56,13 @@ var p2Power : float
 func _ready() -> void:
 	bird_shop.hide()
 	p1 = Player.new()
+	p1.player = "Player 2"
 	p2 = Player.new()
+	p2.player = "Player 1"
 	p1.init()
 	p2.init()
+	p1.connect("endGame", endGame.bind())
+	p2.connect("endGame", endGame.bind())
 	print(len(p1.birds))
 	p1MoneyLabel.text = p1.getMoney()
 	p2MoneyLabel.text = p2.getMoney()
@@ -308,6 +314,15 @@ func _on_box_1_pressed() -> void:
 func _on_box_2_pressed() -> void:
 	BOX = BOX_2 # Replace with function body.
 '''
+* called when box from box shop chosen - set BOX to place to box
+*
+* @param nothing
+* @return nothing
+* @throws nothing
+'''
+func _on_box_3_pressed() -> void:
+	BOX = BOX_3 # Replace with function body.
+'''
 * end round - start next round
 *
 * @param nothing
@@ -340,9 +355,13 @@ func _on_timer_timeout() -> void:
 '''
 func _on_bird_1_pressed() -> void:
 	if(p1birdShop):
-		p1.addBird(BIRD_1)
+		if(p1.money >= BIRD_1.price):
+			p1.money -= BIRD_1.price
+			p1.addBird(BIRD_1)
 	else:
-		p2.addBird(BIRD_1)
+		if(p2.money >= BIRD_1.price):
+			p2.money -= BIRD_1.price
+			p2.addBird(BIRD_1)
 
 '''
 * called when a mango tree dies
@@ -352,4 +371,4 @@ func _on_bird_1_pressed() -> void:
 * @throws nothing
 '''
 func endGame(player : String):
-	pass
+	win.text = player + " won!"	

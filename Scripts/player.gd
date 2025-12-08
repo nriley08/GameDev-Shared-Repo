@@ -9,6 +9,8 @@ var mangoPosition : Vector2
 var mangoInfo : BoxInfo
 var boxes : Array[Box]
 var totalHealth
+var player : String
+signal endGame(player)
 const MANGO = preload("res://Scenes/mango.tscn")
 '''
 * set up the mango with data from the main scene
@@ -36,6 +38,7 @@ func onMangoDied():
 	if(lives <= 0):
 		print("Died")
 		mango.queue_free()
+		endGame.emit(player)
 	else:
 		mango.subtractHealth(-mangoInfo.health)
 '''
