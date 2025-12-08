@@ -8,7 +8,7 @@
 [ext_resource type="Resource" uid="uid://bpnjsobs0th8o" path="res://Resources/box1.tres" id="4_21xkr"]
 [ext_resource type="Script" uid="uid://b6l6vqodhaixw" path="res://Scripts/shopIcon.gd" id="4_kry3j"]
 [ext_resource type="Resource" uid="uid://85b5pv4xedn7" path="res://Resources/box2.tres" id="5_6bp64"]
-[ext_resource type="Resource" path="res://Resources/box3.tres" id="8_d1ilt"]
+[ext_resource type="Resource" uid="uid://djbkig0ls4wbw" path="res://Resources/box3.tres" id="8_d1ilt"]
 [ext_resource type="Script" uid="uid://bu31811rk2vpb" path="res://Scripts/shopBird.gd" id="8_hptm8"]
 [ext_resource type="Script" uid="uid://bvyxeujeomj0a" path="res://Scripts/progress_bar.gd" id="9_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://ckcyr6dm4yshc" path="res://Scenes/mango.tscn" id="11_d1ilt"]
@@ -173,11 +173,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="p1Mango" parent="." instance=ExtResource("11_d1ilt")]
 position = Vector2(-212, 276)
-scale = Vector2(0.7, 0.7)
 
 [node name="p2Mango" parent="." instance=ExtResource("11_d1ilt")]
 position = Vector2(224, 276)
-scale = Vector2(0.7, 0.7)
 
 [connection signal="pressed" from="P1Ready" to="." method="_on_p_1_ready_pressed"]
 [connection signal="pressed" from="P1Placement" to="." method="_on_p_1_placement_pressed"]
