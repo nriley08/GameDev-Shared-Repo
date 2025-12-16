@@ -1,5 +1,5 @@
 extends Node2D
-@onready var win: Label = $CanvasLayer/Win
+@onready var win: Label = $CanvasLayer/win
 
 @onready var p_1_slingshot: AnimatedSprite2D = $P1Slingshot
 @onready var p_2_slingshot: AnimatedSprite2D = $P2Slingshot
@@ -119,6 +119,9 @@ func p1Shoot():
 	if(newBirdInfo == null):
 		p1Ready = false
 		if(p1Ready == p2Ready):
+			Engine.time_scale = 3
+			await get_tree().create_timer(1).timeout
+			Engine.time_scale = 1
 			endRound()
 		return
 	else:
@@ -139,6 +142,9 @@ func p2Shoot():
 	if(newBirdInfo == null):
 		p2Ready = false
 		if(p1Ready == p2Ready):
+			Engine.time_scale = 3
+			await get_tree().create_timer(1).timeout
+			Engine.time_scale = 1
 			endRound()
 		return
 	else:
@@ -152,7 +158,7 @@ func buildStage1():
 	shop.show()
 	p1birdShop =true
 	bird_shop.show()
-	bird_shop.position.x = -10
+	bird_shop.position.x = 110
 	p_2_slingshot.hide()
 	p2mango.hide()
 	shop.position.x = -10
@@ -161,8 +167,8 @@ func buildStage1():
 
 func buildStage2():
 	p1birdShop =false #makes it so the bird takes money from p2 and not p1
-	shop.position.x = -640
-	bird_shop.position.x = -640
+	shop.position.x = -740
+	bird_shop.position.x = -470
 	p_2_slingshot.show()
 	p2mango.show()
 	showPlayer1Buttons(false)
@@ -332,8 +338,8 @@ func _on_box_3_pressed() -> void:
 func endRound():
 	timer.stop()
 	damageable = false
-	p2.addMoney(p1.getDamage()*10)
-	p1.addMoney(p2.getDamage()*10)
+	p2.addMoney(p2.lives*100)
+	p1.addMoney(p1.lives*100)
 	p1MoneyLabel.text = p1.getMoney()
 	p2MoneyLabel.text = p2.getMoney()
 	buildStage1()
@@ -356,12 +362,16 @@ func _on_timer_timeout() -> void:
 func _on_bird_1_pressed() -> void:
 	if(p1birdShop):
 		if(p1.money >= BIRD_1.price):
+			#$P1Slingshot/birdsP1.text = len(p1.birds)
 			p1.money -= BIRD_1.price
 			p1.addBird(BIRD_1)
+			p1MoneyLabel.text = p1.getMoney()
 	else:
 		if(p2.money >= BIRD_1.price):
+			#$P2Slingshot/birdsp2.text = len(p2.birds)
 			p2.money -= BIRD_1.price
 			p2.addBird(BIRD_1)
+			p2MoneyLabel.text = p2.getMoney()
 
 '''
 * called when a mango tree dies
@@ -371,4 +381,5 @@ func _on_bird_1_pressed() -> void:
 * @throws nothing
 '''
 func endGame(player : String):
-	win.text = player + " won!"	
+	print("done")
+	get_tree().change_scene_to_file("res://Scenes/menu_scene.tscn")

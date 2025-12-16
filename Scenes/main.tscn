@@ -183,9 +183,12 @@ position = Vector2(-212, 276)
 
 [node name="p2Mango" parent="." instance=ExtResource("11_d1ilt")]
 position = Vector2(224, 276)
+<<<<<<< HEAD
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 script = ExtResource("13_fdnlq")
+=======
+>>>>>>> be26f786dad09e83819d5635a45c5036935be316
 
 [connection signal="pressed" from="P1Ready" to="." method="_on_p_1_ready_pressed"]
 [connection signal="pressed" from="P1Placement" to="." method="_on_p_1_placement_pressed"]

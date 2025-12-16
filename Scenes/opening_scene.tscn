@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://d32i7cidfitb"]
 
-[ext_resource type="Script" uid="uid://ct6j011t8rxxi" path="res://opening_scene.gd" id="1_00wqr"]
+[ext_resource type="Script" uid="uid://ct6j011t8rxxi" path="res://Scripts/opening_scene.gd" id="1_00wqr"]
 [ext_resource type="Texture2D" uid="uid://b1rl1f8enslsc" path="res://Assets/mr leath 1.png" id="2_2pc80"]
 [ext_resource type="Texture2D" uid="uid://vnrhqmnmi4b8" path="res://Assets/angry jason spritesheet.png" id="3_sfksp"]
 

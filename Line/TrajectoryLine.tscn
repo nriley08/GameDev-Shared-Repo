@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmob3twcoonsa"]
+
+[ext_resource type="Texture2D" uid="uid://b44rfcg87we6h" path="res://icon.svg" id="1_0pok3"]
+[ext_resource type="Script" uid="uid://uwtxtd4k5i1r" path="res://Line/TrajectoryLine.gd" id="1_v8vlh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ly08x"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1gqc1"]
+blend_mode = 1
+
+[node name="TrajectoryLine" type="Line2D"]
+points = PackedVector2Array(-2, 2, 43, -30, 86, 4, 133, -69, 203, -59, 231, -16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+script = ExtResource("1_v8vlh")
+
+[node name="TestObject" type="Node2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestObject"]
+shape = SubResource("CircleShape2D_ly08x")
+
+[node name="EndPoint" type="Sprite2D" parent="TestObject/CollisionShape2D"]
+material = SubResource("CanvasItemMaterial_1gqc1")
+position = Vector2(-9.53674e-07, 4.76837e-07)
+scale = Vector2(0.140625, 0.140625)
+texture = ExtResource("1_0pok3")
