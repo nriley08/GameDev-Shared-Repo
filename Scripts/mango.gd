@@ -45,7 +45,7 @@ func subtractHealth(amount : int):
 	if(health <= 0):
 		health = 0
 		Died.emit()
-		print("died")
+		#print("died")
 		#queue_free()
 	else:
 		healthLabel.text = str(health)

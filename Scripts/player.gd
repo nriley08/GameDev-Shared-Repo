@@ -9,6 +9,8 @@ var mangoPosition : Vector2
 var mangoInfo : BoxInfo
 var boxes : Array[Box]
 var totalHealth
+var player : String
+signal endGame(player)
 const MANGO = preload("res://Scenes/mango.tscn")
 '''
 * set up the mango with data from the main scene
@@ -32,10 +34,11 @@ func setUpMango(info : BoxInfo, box : Mango):
 '''
 func onMangoDied():
 	lives -= 1
-	print("h")
+	#print("h")
 	if(lives <= 0):
-		print("Died")
+		#print("Died")
 		mango.queue_free()
+		endGame.emit(player)
 	else:
 		mango.subtractHealth(-mangoInfo.health)
 '''
@@ -86,7 +89,7 @@ func spend(amount : int) -> bool:
 	return true
 
 func addBox(box : Box):
-	print("box added")
+	#print("box added")
 	boxes.append(box)
 '''
 * called at start of round, set everything damageable

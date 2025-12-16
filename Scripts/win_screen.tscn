@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbgsbkqartfqk"]
+
+[ext_resource type="Script" uid="uid://dha81h4whl00b" path="res://Scripts/WinButon.gd" id="1_wrjho"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_a00f1"]
+
+[node name="Win Screen" type="Node2D"]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(573.75, 314.75)
+scale = Vector2(1148.5, 630.5)
+mesh = SubResource("BoxMesh_a00f1")
+
+[node name="ColorRect" type="ColorRect" parent="MeshInstance2D"]
+offset_left = -1.79168
+offset_top = -1.7157
+offset_right = 38.2083
+offset_bottom = 38.2843
+color = Color(0, 0.933333, 0.933333, 1)
+
+[node name="Button" type="Button" parent="."]
+offset_left = 130.0
+offset_top = 393.0
+offset_right = 334.0
+offset_bottom = 529.0
+scale = Vector2(1.003, 1.00571)
+text = "Restart?
+"
+script = ExtResource("1_wrjho")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

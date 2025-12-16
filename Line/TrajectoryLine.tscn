@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dmob3twcoonsa"]
 
-[ext_resource type="Texture2D" uid="uid://bsqq7npiaoi2t" path="res://icon.svg" id="1_0pok3"]
-[ext_resource type="Script" uid="uid://uwtxtd4k5i1r" path="res://TrajectoryLine.gd" id="1_v8vlh"]
+[ext_resource type="Texture2D" uid="uid://b44rfcg87we6h" path="res://icon.svg" id="1_0pok3"]
+[ext_resource type="Script" uid="uid://uwtxtd4k5i1r" path="res://Line/TrajectoryLine.gd" id="1_v8vlh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ly08x"]
 
@@ -9,11 +9,10 @@
 blend_mode = 1
 
 [node name="TrajectoryLine" type="Line2D"]
-points = PackedVector2Array(-2, 2, 43, -30, 86, 4, 133, -69, 203, -59, 231, -16)
+points = PackedVector2Array(-2, 2, 43, -30, 86, 4, 133, -69, 203, -59, 231, -16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 script = ExtResource("1_v8vlh")
 
-[node name="TestObject" type="CharacterBody2D" parent="."]
-collision_layer = 4
+[node name="TestObject" type="Node2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TestObject"]
 shape = SubResource("CircleShape2D_ly08x")

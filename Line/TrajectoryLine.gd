@@ -1,6 +1,6 @@
 extends Line2D
 
-@export var maxPoints = 70
+var maxPoints = 67
 @onready var testCollision = $TestObject
 var collision
 var linePosition = Vector2.ZERO
@@ -11,31 +11,31 @@ func _ready() -> void:
 
 func _refresh():
 	clear_points()
-	linePosition = get_parent().get_node("CharacterBody2D").position
-	testCollision.velocity = Vector2.ZERO
+	linePosition = get_parent().position
 	
 	for i in maxPoints:
 		add_point(linePosition)
 	testCollision.position = linePosition
 	collision = null
-	visible = false
+	visible = true
 	
 	
-func _update_trajectory(direction, jumpForce, gravity, delta, characterXVelocity, startingPosition):
+func _update_trajectory(direction, gravity, delta, startingPosition, power):
 	linePosition = startingPosition
 	testCollision.position = linePosition
-	testCollision.velocity.y = jumpForce
 	
+	var xMove
+	var yMove = -1
 	if direction == "right":
-		testCollision.velocity.x = -characterXVelocity
+		xMove = .55
 	else:
-		testCollision.velocity.x = characterXVelocity
+		xMove = -.55
 	
 	for i in get_point_count():
-		if !collision:
-			testCollision.velocity.y += gravity * delta
 		set_point_position(i, testCollision.position)
-		collision = testCollision.move_and_collide(testCollision.velocity * delta, false)
+		testCollision.position += Vector2(xMove,yMove) * power / 9
+		yMove += abs(gravity * delta / 10)
+		#print(yMove)
 	visible = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
