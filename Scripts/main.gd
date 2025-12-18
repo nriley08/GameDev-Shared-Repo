@@ -32,6 +32,7 @@ const BOX_3 = preload("res://Resources/box3.tres")
 #birds for shop
 const BIRD_1 = preload("res://Resources/bird1.tres")
 var p1birdShop := false
+const BIRD_2 = preload("res://Resources/bird2.tres")
 
 @onready var p_1_ready: Button = $P1Ready
 @onready var p_2_ready: Button = $P2Ready
@@ -383,3 +384,18 @@ func _on_bird_1_pressed() -> void:
 func endGame(player : String):
 	print("done")
 	get_tree().change_scene_to_file("res://Scenes/menu_scene.tscn")
+
+
+func _on_bird_2_pressed() -> void:
+	if(p1birdShop):
+		if(p1.money >= BIRD_2.price):
+			#$P1Slingshot/birdsP1.text = len(p1.birds)
+			p1.money -= BIRD_2.price
+			p1.addBird(BIRD_2)
+			p1MoneyLabel.text = p1.getMoney()
+	else:
+		if(p2.money >= BIRD_2.price):
+			#$P2Slingshot/birdsp2.text = len(p2.birds)
+			p2.money -= BIRD_2.price
+			p2.addBird(BIRD_2)
+			p2MoneyLabel.text = p2.getMoney()

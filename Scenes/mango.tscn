@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://ckcyr6dm4yshc"]
 
 [ext_resource type="Script" uid="uid://crt5glxccn8q" path="res://Scripts/mango.gd" id="1_nnmhy"]
-[ext_resource type="Texture2D" uid="uid://b44rfcg87we6h" path="res://icon.svg" id="2_8q5rd"]
+[ext_resource type="Texture2D" uid="uid://btws0s41v3x81" path="res://Assets/Final Assets/brandon assets/mangomangomango.png" id="2_nnmhy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b5qfa"]
 size = Vector2(127, 126.5)
@@ -82,7 +82,7 @@ shape = SubResource("RectangleShape2D_b5qfa")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.7, 0.7)
-texture = ExtResource("2_8q5rd")
+texture = ExtResource("2_nnmhy")
 
 [node name="Mango" type="Area2D" parent="."]
 collision_mask = 3
@@ -90,7 +90,7 @@ monitorable = false
 gravity_space_override = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mango"]
-scale = Vector2(0.7, 0.7)
+scale = Vector2(0.5, 0.5)
 
 [node name="Health" type="Label" parent="."]
 offset_right = 40.0

@@ -46,10 +46,10 @@ func subtractHealth(amount : int):
 	health -= amount
 	if(health <= 0):
 		health = 0
-		Died.emit()
 		animation_player.play("die")
 		await get_tree().create_timer(1.0).timeout
 		animation_player.play("RESET")
+		Died.emit()
 	else:
 		healthLabel.text = str(health)
 '''

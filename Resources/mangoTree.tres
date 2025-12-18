@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="BoxInfo" load_steps=3 format=3 uid="uid://duqcdw4m2c2qj"]
 
 [ext_resource type="Script" uid="uid://ixvkm70n8r36" path="res://Scripts/boxInfo.gd" id="1_mejcx"]
-[ext_resource type="Texture2D" uid="uid://b44rfcg87we6h" path="res://icon.svg" id="2_v8ibl"]
+[ext_resource type="Texture2D" uid="uid://btws0s41v3x81" path="res://Assets/Final Assets/brandon assets/mangomangomango.png" id="2_mejcx"]
 
 [resource]
 script = ExtResource("1_mejcx")
-sprite = ExtResource("2_v8ibl")
-health = 10
+sprite = ExtResource("2_mejcx")
+health = 40
 modulate = Vector3(1, 1, 1)
 price = 0
 metadata/_custom_type_script = "uid://ixvkm70n8r36"
