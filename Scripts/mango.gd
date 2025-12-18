@@ -1,6 +1,8 @@
 extends RigidBody2D
 class_name Mango
 
+@onready var animation_player: AnimationPlayer = $Label/AnimationPlayer
+
 signal Died()
 @export var health := 100
 var damageable := false
@@ -44,9 +46,10 @@ func subtractHealth(amount : int):
 	health -= amount
 	if(health <= 0):
 		health = 0
+		animation_player.play("die")
+		await get_tree().create_timer(1.0).timeout
+		animation_player.play("RESET")
 		Died.emit()
-		#print("died")
-		#queue_free()
 	else:
 		healthLabel.text = str(health)
 '''

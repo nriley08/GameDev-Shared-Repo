@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BirdInfo" load_steps=3 format=3 uid="uid://bkj3m7lob78b6"]
+
+[ext_resource type="Script" uid="uid://ca71adt21nb6p" path="res://Scripts/birdInfo.gd" id="1_qsplc"]
+[ext_resource type="Texture2D" uid="uid://0hhwx5g1inoh" path="res://Assets/Final Assets/cannonball.png" id="2_qsplc"]
+
+[resource]
+script = ExtResource("1_qsplc")
+damage = 1.3
+sprite = ExtResource("2_qsplc")
+radius = 20
+speed = 30
+modulate = Vector3(1, 1, 1)
+price = 10
+metadata/_custom_type_script = "uid://ca71adt21nb6p"

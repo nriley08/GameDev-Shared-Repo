@@ -34,7 +34,6 @@ func setUpMango(info : BoxInfo, box : Mango):
 '''
 func onMangoDied():
 	lives -= 1
-	#print("h")
 	if(lives <= 0):
 		#print("Died")
 		mango.queue_free()
@@ -91,6 +90,11 @@ func spend(amount : int) -> bool:
 func addBox(box : Box):
 	#print("box added")
 	boxes.append(box)
+	box.index = boxes.size()-1
+	box.connect("died", removeBox.bind())
+	
+func removeBox(index : int):
+	boxes.remove_at(index)
 '''
 * called at start of round, set everything damageable
 *
@@ -100,12 +104,14 @@ func addBox(box : Box):
 '''
 func setDamageable():
 	mango.setDamageable()
+	print("Size: " +str(boxes.size()))
 	for i in range(0,len(boxes)):
-		if(boxes[i] != null):
+		print("i: " + str(i))
+	'''	if(boxes[i] != null):
 			boxes[i].setDamageable()
 		else:
 			boxes.pop_at(i)
-			i-=1
+			i-=1'''
 	totalHealth = getTotalHealth()
 '''
 * called at end of round, check total health of boxes

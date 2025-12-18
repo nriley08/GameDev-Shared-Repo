@@ -54,16 +54,6 @@ offset_bottom = -61.0
 theme_override_font_sizes/font_size = 30
 text = "Play"
 
-[node name="settings_button" type="Button" parent="buttons"]
-z_index = 1
-layout_mode = 0
-offset_left = -647.0
-offset_top = -3.0
-offset_right = -370.0
-offset_bottom = 85.0
-theme_override_font_sizes/font_size = 25
-text = "Settings"
-
 [node name="quit_button" type="Button" parent="buttons"]
 z_index = 1
 layout_mode = 0
@@ -89,5 +79,4 @@ position = Vector2(590, -1)
 texture = ExtResource("3_i2hkk")
 
 [connection signal="pressed" from="buttons/play_button" to="buttons" method="_on_play_button_pressed"]
-[connection signal="pressed" from="buttons/settings_button" to="buttons" method="_on_settings_button_pressed"]
 [connection signal="pressed" from="buttons/quit_button" to="buttons" method="_on_quit_button_pressed"]

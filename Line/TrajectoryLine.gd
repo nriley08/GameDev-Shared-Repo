@@ -35,7 +35,6 @@ func _update_trajectory(direction, gravity, delta, startingPosition, power):
 		set_point_position(i, testCollision.position)
 		testCollision.position += Vector2(xMove,yMove) * power / 9
 		yMove += abs(gravity * delta / 10)
-		#print(yMove)
 	visible = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

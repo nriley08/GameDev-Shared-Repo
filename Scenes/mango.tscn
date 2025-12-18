@@ -1,10 +1,70 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckcyr6dm4yshc"]
+[gd_scene load_steps=7 format=3 uid="uid://ckcyr6dm4yshc"]
 
 [ext_resource type="Script" uid="uid://crt5glxccn8q" path="res://Scripts/mango.gd" id="1_nnmhy"]
-[ext_resource type="Texture2D" uid="uid://b44rfcg87we6h" path="res://icon.svg" id="2_8q5rd"]
+[ext_resource type="Texture2D" uid="uid://btws0s41v3x81" path="res://Assets/Final Assets/brandon assets/mangomangomango.png" id="2_nnmhy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b5qfa"]
 size = Vector2(127, 126.5)
+
+[sub_resource type="Animation" id="Animation_8q5rd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+
+[sub_resource type="Animation" id="Animation_nnmhy"]
+resource_name = "die"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(3, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["", "You lost a Mango!"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x4rq7"]
+_data = {
+&"RESET": SubResource("Animation_8q5rd"),
+&"die": SubResource("Animation_nnmhy")
+}
 
 [node name="Mango" type="RigidBody2D" node_paths=PackedStringArray("sprite_2d", "collision_shape_2d", "areashape", "healthLabel")]
 scale = Vector2(0.7, 0.7)
@@ -22,7 +82,7 @@ shape = SubResource("RectangleShape2D_b5qfa")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.7, 0.7)
-texture = ExtResource("2_8q5rd")
+texture = ExtResource("2_nnmhy")
 
 [node name="Mango" type="Area2D" parent="."]
 collision_mask = 3
@@ -30,10 +90,29 @@ monitorable = false
 gravity_space_override = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mango"]
-scale = Vector2(0.7, 0.7)
+scale = Vector2(0.5, 0.5)
 
 [node name="Health" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -84.2857
+offset_top = -242.857
+offset_right = 95.7143
+offset_bottom = -219.857
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(3, 3)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label"]
+libraries = {
+&"": SubResource("AnimationLibrary_x4rq7")
+}
 
 [connection signal="body_entered" from="Mango" to="." method="_on_area_2d_body_entered"]

@@ -35,6 +35,7 @@ func _ready():
 * @throws nothing
 '''
 func _on_area_2d_body_entered(_body: Node2D) -> void:
+	#if(_body)
 	_body.subtractHealth(int(abs(linear_velocity.length()*damage))/100)
 
 

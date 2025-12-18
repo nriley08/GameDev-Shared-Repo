@@ -7,6 +7,9 @@ var damageable := false
 @export var collision_shape_2d: CollisionShape2D # $Area2D/CollisionShape2D
 @export var areashape: CollisionShape2D # $Area2D/CollisionShape2D
 @export var healthLabel: Label
+var index
+
+signal died(index)
 '''
 * set up box from BoxInfo
 *
@@ -33,6 +36,7 @@ func setDamageable():
 func subtractHealth(amount : int):
 	health -= amount
 	if(health <= 0):
+		died.emit(index)
 		queue_free()
 	else:
 		healthLabel.text = str(health)

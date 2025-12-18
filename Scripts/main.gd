@@ -32,6 +32,7 @@ const BOX_3 = preload("res://Resources/box3.tres")
 #birds for shop
 const BIRD_1 = preload("res://Resources/bird1.tres")
 var p1birdShop := false
+const BIRD_2 = preload("res://Resources/bird2.tres")
 
 @onready var p_1_ready: Button = $P1Ready
 @onready var p_2_ready: Button = $P2Ready
@@ -63,7 +64,7 @@ func _ready() -> void:
 	p2.init()
 	p1.connect("endGame", endGame.bind())
 	p2.connect("endGame", endGame.bind())
-	#print(len(p1.birds))
+	print(len(p1.birds))
 	p1MoneyLabel.text = p1.getMoney()
 	p2MoneyLabel.text = p2.getMoney()
 	buildStage1()
@@ -119,6 +120,9 @@ func p1Shoot():
 	if(newBirdInfo == null):
 		p1Ready = false
 		if(p1Ready == p2Ready):
+			Engine.time_scale = 3
+			await get_tree().create_timer(1).timeout
+			Engine.time_scale = 1
 			endRound()
 		return
 	else:
@@ -139,6 +143,9 @@ func p2Shoot():
 	if(newBirdInfo == null):
 		p2Ready = false
 		if(p1Ready == p2Ready):
+			Engine.time_scale = 3
+			await get_tree().create_timer(1).timeout
+			Engine.time_scale = 1
 			endRound()
 		return
 	else:
@@ -356,11 +363,13 @@ func _on_timer_timeout() -> void:
 func _on_bird_1_pressed() -> void:
 	if(p1birdShop):
 		if(p1.money >= BIRD_1.price):
+			#$P1Slingshot/birdsP1.text = len(p1.birds)
 			p1.money -= BIRD_1.price
 			p1.addBird(BIRD_1)
 			p1MoneyLabel.text = p1.getMoney()
 	else:
 		if(p2.money >= BIRD_1.price):
+			#$P2Slingshot/birdsp2.text = len(p2.birds)
 			p2.money -= BIRD_1.price
 			p2.addBird(BIRD_1)
 			p2MoneyLabel.text = p2.getMoney()
@@ -373,4 +382,20 @@ func _on_bird_1_pressed() -> void:
 * @throws nothing
 '''
 func endGame(player : String):
-	win.text = player + " won!"	
+	print("done")
+	get_tree().change_scene_to_file("res://Scenes/menu_scene.tscn")
+
+
+func _on_bird_2_pressed() -> void:
+	if(p1birdShop):
+		if(p1.money >= BIRD_2.price):
+			#$P1Slingshot/birdsP1.text = len(p1.birds)
+			p1.money -= BIRD_2.price
+			p1.addBird(BIRD_2)
+			p1MoneyLabel.text = p1.getMoney()
+	else:
+		if(p2.money >= BIRD_2.price):
+			#$P2Slingshot/birdsp2.text = len(p2.birds)
+			p2.money -= BIRD_2.price
+			p2.addBird(BIRD_2)
+			p2MoneyLabel.text = p2.getMoney()

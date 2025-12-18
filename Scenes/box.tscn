@@ -17,7 +17,7 @@ healthLabel = NodePath("Health")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -0.25)
-scale = Vector2(0.7, 0.7)
+scale = Vector2(0.35, 0.35)
 shape = SubResource("RectangleShape2D_b5qfa")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -30,7 +30,7 @@ monitorable = false
 gravity_space_override = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Box"]
-scale = Vector2(0.7, 0.7)
+scale = Vector2(0.3, 0.3)
 
 [node name="Health" type="Label" parent="."]
 offset_right = 40.0

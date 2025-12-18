@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="BoxInfo" load_steps=3 format=3 uid="uid://85b5pv4xedn7"]
 
 [ext_resource type="Script" uid="uid://ixvkm70n8r36" path="res://Scripts/boxInfo.gd" id="1_exhf7"]
-[ext_resource type="Texture2D" uid="uid://b44rfcg87we6h" path="res://icon.svg" id="2_lbby4"]
+[ext_resource type="Texture2D" uid="uid://5tmexk40dnyo" path="res://Assets/Final Assets/brandon assets/stonebox.png" id="2_exhf7"]
 
 [resource]
 script = ExtResource("1_exhf7")
-sprite = ExtResource("2_lbby4")
-health = 100
-modulate = Vector3(1, 0, 0)
-price = 20
+sprite = ExtResource("2_exhf7")
+health = 20
+modulate = Vector3(1, 1, 1)
+price = 80
 metadata/_custom_type_script = "uid://ixvkm70n8r36"
